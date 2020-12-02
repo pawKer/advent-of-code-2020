@@ -1,0 +1,14 @@
+{
+  "name": "aoc-2020-solutions",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Solutions for AoC 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "day2-part1": "node --experimental-modules src/day2/part1.js",
+    "day2-part2": "node --experimental-modules src/day2/part2.js"
+  },
+  "author": "Rares Dinu",
+  "license": "ISC"
+}
