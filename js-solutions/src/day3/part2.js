@@ -27,7 +27,9 @@ const getTreeCountProductInefficient = (data, slopes) => {
     });
     return countProduct;
 };
+console.time('getTreeCountProductInefficient')
 console.log(getTreeCountProductInefficient(dataArray, slopes))
+console.timeEnd('getTreeCountProductInefficient')
 
 const getTreeCountProductEfficient = (dataArray, slopes) => {
     let searchIndices = new Array(slopes.length).fill(0);
@@ -62,4 +64,6 @@ const getTreeCountProductEfficient = (dataArray, slopes) => {
     return countProduct;
 
 };
+console.time('getTreeCountProductEfficient')
 console.log(getTreeCountProductEfficient(dataArray, slopes))
+console.timeEnd('getTreeCountProductEfficient')
