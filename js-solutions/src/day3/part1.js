@@ -1,5 +1,5 @@
 import { stringInputToArray } from '../utils/string-input-to-array.js';
-import { data } from './input.js/index.js';
+import { data } from './input.js';
 
 const dataArray = stringInputToArray(data);
 
