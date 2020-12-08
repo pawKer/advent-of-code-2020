@@ -5,8 +5,6 @@ const dataObj = getInstructionsToDataObject(data);
 
 console.log(dataObj)
 
-const MAX_EXECUTION_STEPS = 10000
-
 const runProgramWithFix = (fixLine) => {
     let copyData = JSON.parse(JSON.stringify(dataObj));
 
@@ -26,11 +24,15 @@ const runProgramWithFix = (fixLine) => {
 
     console.log('Line after fix: ', copyData[fixLine])
 
-    let steps = 0
     let lineToExecute = 0;
     let accumulator = 0;
 
-    while(lineToExecute < copyData.length && steps < MAX_EXECUTION_STEPS) {
+    while(lineToExecute < copyData.length) {
+        if(copyData[lineToExecute].executed) {
+            console.log("INFINITE LOOP DETECTED")
+            return false;
+        }
+
         if(copyData[lineToExecute].instruction === 'nop') {
             copyData[lineToExecute].executed = true;
             lineToExecute ++;
@@ -42,17 +44,13 @@ const runProgramWithFix = (fixLine) => {
             copyData[lineToExecute].executed = true;
             lineToExecute += copyData[lineToExecute].value
         }
-        steps++;
     }
 
-    if(steps >= MAX_EXECUTION_STEPS) {
-        console.log("INFINITE LOOP DETECTED")
-        return false;
-    } 
     if(lineToExecute >= copyData.length) {
-        console.log("PROGRAM RUNS FINE")
+        console.log("PROGRAM EXITED CORRECTLY")
         return accumulator;
     }
+    
     console.log("SOMETHING ELSE")
     return false;
 
