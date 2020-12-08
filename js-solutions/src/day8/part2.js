@@ -7,7 +7,7 @@ console.log(dataObj)
 
 const MAX_EXECUTION_STEPS = 10000
 
-const tryProgram = (fixLine) => {
+const runProgramWithFix = (fixLine) => {
     let copyData = JSON.parse(JSON.stringify(dataObj));
 
     console.log('Line before fix: ', copyData[fixLine])
@@ -19,6 +19,8 @@ const tryProgram = (fixLine) => {
         copyData[fixLine].instruction = 'nop'
         copyData[fixLine].executed = false;
     } else {
+        // If the line we wanted to fix is not a nop or jmp instruction
+        // we skip this run
         return false;
     }
 
@@ -56,13 +58,15 @@ const tryProgram = (fixLine) => {
 
 }
 
-let tryLine = 0;
-while(tryLine < dataObj.length) {
-    console.log('Trying line:', tryLine)
-    let result = tryProgram(tryLine)
+let lineToFix = 0;
+while(lineToFix < dataObj.length) {
+    console.log('Trying line:', lineToFix)
+    let result = runProgramWithFix(lineToFix)
+
     if(result !== false) {
         console.log("Found result: ", result)
         break;
     }
-    tryLine++;
+
+    lineToFix++;
 }
