@@ -25,7 +25,9 @@
     "day9-part1": "node --experimental-modules src/day9/part1.js",
     "day9-part2": "node --experimental-modules src/day9/part2.js",
     "day10-part1": "node --experimental-modules src/day10/part1.js",
-    "day10-part2": "node --experimental-modules src/day10/part2.js"
+    "day10-part2": "node --experimental-modules src/day10/part2.js",
+    "day11-part1": "node --experimental-modules src/day11/part1.js",
+    "day11-part2": "node --experimental-modules src/day11/part2.js"
   },
   "author": "Rares Dinu",
   "license": "ISC"
