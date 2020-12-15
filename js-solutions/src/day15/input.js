@@ -1,0 +1,1 @@
+export const inputData = `9,3,1,0,8,4`
